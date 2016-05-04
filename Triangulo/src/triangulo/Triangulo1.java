@@ -6,7 +6,7 @@ import java.util.Scanner;
  *
  * @author a1402072
  */
-public class Triangulo {
+public class Triangulo1 {
 
     /**
      * @param args the command line arguments
@@ -23,7 +23,7 @@ public class Triangulo {
         System.out.println("Digite o terceiro valor inteiro positivo:");
         c = scanner.nextInt();
 
-        if (isTriangle(a, b, c)) {
+        if (triangleType(a, b, c) != null) {
             String triangleType = triangleType(a, b, c);
             System.out.println("É um triângulo " + triangleType + " válido!");
         } else {
@@ -32,7 +32,7 @@ public class Triangulo {
 
     }
 
-    public static boolean isTriangle(int a, int b, int c) {
+    private static boolean isTriangle(int a, int b, int c) {
 
         boolean isTriangle = false;
 
@@ -50,14 +50,16 @@ public class Triangulo {
     }
 
     public static String triangleType(int a, int b, int c) {
-        
-        if (a == b && b == c) {
-            return "equilátero";
-        } else if (a == b || a == c || b == c) {
-            return "isóceles";
+        if (isTriangle(a, b, c)) {
+            if (a == b && b == c) {
+                return "equilátero";
+            } else if (a == b || a == c || b == c) {
+                return "isóceles";
+            } else {
+                return "escaleno";
+            }
         } else {
-            return "escaleno";
+            return null;
         }
-        
     }
 }
