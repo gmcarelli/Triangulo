@@ -6,11 +6,8 @@ import java.util.Scanner;
  *
  * @author a1402072
  */
-public class Triangulo1 {
+public class Triangle {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
         int a, b, c;
@@ -22,30 +19,23 @@ public class Triangulo1 {
         b = scanner.nextInt();
         System.out.println("Digite o terceiro valor inteiro positivo:");
         c = scanner.nextInt();
-
-        if (triangleType(a, b, c) != null) {
-            String triangleType = triangleType(a, b, c);
+        String triangleType = triangleType(a, b, c);
+        if (triangleType != null) {            
             System.out.println("É um triângulo " + triangleType + " válido!");
         } else {
             System.out.println("Não é um triângulo válido!!");
         }
-
     }
 
     private static boolean isTriangle(int a, int b, int c) {
-
         boolean isTriangle = false;
-
         if (a <= 0 || b <= 0 || c <= 0) {
             isTriangle = false;
-        } else if ((a + b) > c) {
-            isTriangle = true;
-        } else if ((b + c) > a) {
-            isTriangle = true;
-        } else if ((a + c) > b) {
+        } else if (((a + b) > c)
+                && ((b + c) > a)
+                && ((a + c) > b)) {
             isTriangle = true;
         }
-
         return isTriangle;
     }
 
